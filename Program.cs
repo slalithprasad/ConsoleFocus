@@ -21,7 +21,7 @@ while (true)
     Console.WriteLine($"\n🎯 Focus session started at {DateTime.Now:HH:mm}, You will be reminded in {focusMinutes} minutes...");
     Thread.Sleep(focusMinutes * 60 * 1000);
 
-    PlayMelody();
+    PlayMusic();
 
     Console.WriteLine($"\n🔔 Reminder: {reminderMessage} ({DateTime.Now:HH:mm})");
 
@@ -35,34 +35,23 @@ while (true)
 }
 
 
-void PlayMelody()
+void PlayMusic()
 {
-
     if (OperatingSystem.IsWindows())
     {
-        int baseDuration = 150;
+        int baseDuration = 125;
 
         (int frequency, int duration)[] melody = {
-        (660, baseDuration), (660, baseDuration), (0, baseDuration),
-        (660, baseDuration), (0, baseDuration), (510, baseDuration), (660, baseDuration),
-        (770, baseDuration * 2), (0, baseDuration), (380, baseDuration * 2), (0, baseDuration),
+        (660, baseDuration), (660, baseDuration), (0, baseDuration), (660, baseDuration),
+        (0, baseDuration), (510, baseDuration), (660, baseDuration), (770, baseDuration * 2),
+        (0, baseDuration), (380, baseDuration * 2), (0, baseDuration),
 
         (510, baseDuration), (0, baseDuration), (380, baseDuration * 2), (0, baseDuration),
-        (320, baseDuration * 2), (0, baseDuration), (440, baseDuration),
-        (480, baseDuration), (450, baseDuration), (430, baseDuration),
-        (380, baseDuration), (660, baseDuration), (760, baseDuration), (860, baseDuration),
-
-        (700, baseDuration), (760, baseDuration), (660, baseDuration),
-        (520, baseDuration), (580, baseDuration), (480, baseDuration),
-
-        (510, baseDuration), (0, baseDuration), (380, baseDuration * 2), (0, baseDuration),
-        (320, baseDuration * 2), (0, baseDuration), (440, baseDuration),
-        (480, baseDuration), (450, baseDuration), (430, baseDuration),
-        (380, baseDuration), (660, baseDuration), (760, baseDuration), (860, baseDuration),
-
-        (700, baseDuration), (760, baseDuration), (660, baseDuration),
-        (520, baseDuration), (580, baseDuration), (480, baseDuration)
-        };
+        (320, baseDuration * 2), (0, baseDuration), (440, baseDuration), (480, baseDuration),
+        (450, baseDuration), (430, baseDuration), (380, baseDuration), (660, baseDuration),
+        (760, baseDuration), (860, baseDuration), (700, baseDuration), (760, baseDuration),
+        (660, baseDuration), (520, baseDuration), (580, baseDuration), (480, baseDuration)
+    };
 
         foreach (var (freq, duration) in melody)
         {
