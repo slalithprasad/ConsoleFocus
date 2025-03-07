@@ -43,6 +43,7 @@ dotnet run
 🟢 Console Focus Started! Press Ctrl+C to exit.
 
 Enter focus session duration in minutes: 30
+Do you want to play music after the session? (y/n): y
 Enter your custom reminder message (or press Enter for default): Take a Break!
 
 🎯 Focus session started at 14:00. You will be reminded in 30 minutes...
@@ -53,6 +54,7 @@ Enter your custom reminder message (or press Enter for default): Take a Break!
 🕒 Break duration: 5 minutes.
 
 Enter focus session duration in minutes: 25
+Do you want to play music after the session? (y/n): y
 Enter your custom reminder message (or press Enter for default): Take a Break!
 
 🎯 Focus session started at 14:35. You will be reminded in 25 minutes...

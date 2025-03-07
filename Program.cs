@@ -14,14 +14,28 @@ while (true)
         input = Console.ReadLine();
     }
 
+    Console.Write("Do you want to play music after the session? (y/n): ");
+    string? playMusicInput = Console.ReadLine();
+
+    while (string.IsNullOrEmpty(playMusicInput) || !playMusicInput.Equals("y", StringComparison.OrdinalIgnoreCase) && !playMusicInput.Equals("n", StringComparison.OrdinalIgnoreCase))
+    {
+        Console.Write("Invalid input. Enter 'y' for yes or 'n' for no: ");
+        playMusicInput = Console.ReadLine();
+    }
+
     Console.Write("Enter your custom reminder message (or press Enter for default): ");
     string? customMessage = Console.ReadLine();
-    string reminderMessage = string.IsNullOrWhiteSpace(customMessage) ? "⏳ Time to take a short break and refocus!" : customMessage;
+    string reminderMessage = string.IsNullOrEmpty(customMessage) ? "⏳ Time to take a short break and refocus!" : customMessage;
+
+    bool playMusic = playMusicInput == "y";
 
     Console.WriteLine($"\n🎯 Focus session started at {DateTime.Now:HH:mm}, You will be reminded in {focusMinutes} minutes...");
     Thread.Sleep(focusMinutes * 60 * 1000);
 
-    PlayMusic();
+    if (playMusic)
+    {
+        PlayMusic();
+    }
 
     Console.WriteLine($"\n🔔 Reminder: {reminderMessage} ({DateTime.Now:HH:mm})");
 
